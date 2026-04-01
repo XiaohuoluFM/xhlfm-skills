@@ -35,6 +35,32 @@ Typical shape:
 - `*-podcasts`: better for show-level discovery, creator benchmarking, and curation lists
 - `*-episodes`: better for single-item recommendations, topic scouting, and downstream distribution ideas
 
+## User Language Mapping
+
+In Chinese, users often say `播客` loosely when they actually mean `最近值得点开的内容`.
+
+Default interpretation:
+
+- `热门播客`
+- `最近热门播客`
+- `推荐几个最近很火的播客`
+
+Map these to `*-episodes` first unless the user clearly asks for show/channel-level entities.
+
+Use `*-podcasts` when the wording explicitly asks for:
+
+- `播客频道`
+- `播客栏目`
+- `节目主页`
+- `频道级榜单`
+- `栏目级榜单`
+- benchmark lists of shows
+
+Rule of thumb:
+
+- listener discovery wording -> episodes
+- channel / show / benchmark wording -> podcasts
+
 ## Useful Episode Fields
 
 - `rank`

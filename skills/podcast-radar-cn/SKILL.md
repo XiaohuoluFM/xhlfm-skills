@@ -19,15 +19,15 @@ It is not a general web scraping skill. Its default posture is ranking-first and
 
 Choose one of the four ranking lists:
 
-- `hot-podcasts`
 - `hot-episodes`
+- `hot-podcasts`
 - `new-podcasts`
 - `new-episodes`
 
 Fetch a candidate set first:
 
 ```bash
-python skills/podcast-radar-cn/scripts/fetch_xyz_rank.py --list hot-podcasts --limit 20
+python skills/podcast-radar-cn/scripts/fetch_xyz_rank.py --list hot-episodes --limit 20
 ```
 
 Filter by genre, freshness, or query when the user already has a direction:
@@ -53,11 +53,43 @@ python skills/podcast-radar-cn/scripts/enrich_xiaoyuzhou.py \
    - listener discovery
    - creator benchmarking
    - curation/distribution research
-2. Pick the most relevant ranking list.
-3. Fetch enough candidates to support filtering; do not stop at the first 5 unless the user asked for 5.
-4. Use ranking fields and title signals first.
-5. Only if the answer would otherwise be weak, enrich a small set of Xiaoyuzhou pages.
-6. Return a task-shaped result, not raw JSON.
+2. Interpret the user's wording before choosing the list:
+   - if the user says `热门播客`, `最近播客`, `值得听的播客`, or similar casual Chinese phrasing, default to episode-level results
+   - if the user explicitly asks for `播客频道`, `播客栏目`, `节目主页`, `show-level`, `频道级`, or wants a creator benchmark list, use podcast-level results
+3. Pick the most relevant ranking list.
+   - default listener-discovery wording usually maps to `hot-episodes` or `new-episodes`
+   - explicit channel / show / benchmark wording usually maps to `hot-podcasts` or `new-podcasts`
+4. Fetch enough candidates to support filtering; do not stop at the first 5 unless the user asked for 5.
+5. Use ranking fields and title signals first.
+6. Only if the answer would otherwise be weak, enrich a small set of Xiaoyuzhou pages.
+7. Return a task-shaped result, not raw JSON.
+
+## Query Interpretation Rule
+
+In Chinese product usage, users often say `播客` when they really mean `最近值得点开的内容`.
+
+Default behavior:
+
+- `热门播客`
+- `最近热门播客`
+- `最近值得听的播客`
+- `推荐几个热门播客`
+
+Treat these as requests for episode-level recommendations unless the wording clearly asks for show/channel-level objects.
+
+Switch to podcast-level results only when the user explicitly asks for things like:
+
+- `播客频道`
+- `播客栏目`
+- `播客节目主页`
+- `频道级榜单`
+- `栏目级榜单`
+- show-level benchmark or channel list
+
+When in doubt:
+
+- listener-oriented wording -> episode-first
+- benchmark / channel / host / show-portfolio wording -> podcast-first
 
 ## Title-First Rule
 
@@ -105,7 +137,7 @@ The enrichment script enforces the cap for you.
 
 Use one of these result shapes:
 
-- Listener Discovery: what is worth hearing now, and why
+- Listener Discovery: what episode is worth hearing now, and why
 - Creator Benchmarking: which shows are worth studying or comparing against
 - Curation and Distribution: which shows or episodes are worth packaging, recommending, or developing into downstream ideas
 

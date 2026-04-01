@@ -6,12 +6,14 @@ Use these patterns to turn ranking data into user-facing results.
 
 Use when the user wants to know what is worth hearing now.
 
+Unless the user explicitly asks for a channel, column, or show page, default this mode to episode-level results even if the user says `热门播客`.
+
 Recommended shape:
 
 1. One short takeaway
 2. A ranked or lightly curated list
 3. Each item should include:
-   - show or episode name
+   - episode name first, or show name only when channel-level wording is explicit
    - genre
    - one or two concrete reasons
    - link
@@ -26,6 +28,8 @@ Good reasons:
 ## Creator Benchmarking
 
 Use when the user wants shows to study, compare against, or learn from.
+
+This mode is usually show-level and therefore a good fit for `*-podcasts`.
 
 Recommended shape:
 
@@ -49,6 +53,9 @@ Benchmark angles:
 ## Curation and Distribution
 
 Use when the user wants a list to recommend, package, or adapt downstream.
+
+If the user is curating “what to hear now”, prefer episodes first.
+If the user is curating “which channels to follow”, prefer podcasts.
 
 Recommended shape:
 
