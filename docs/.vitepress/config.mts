@@ -7,7 +7,11 @@ export default defineConfig({
   cleanUrls: true,
   lastUpdated: true,
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicon/apple-touch-icon.png' }],
+    ['link', { rel: 'manifest', href: '/favicon/site.webmanifest' }],
     ['meta', { name: 'theme-color', content: '#ff4d2e' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: '小火炉播客 Skills' }],
@@ -15,7 +19,7 @@ export default defineConfig({
     ['meta', { property: 'og:image', content: '/logo.png' }]
   ],
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/logo.svg',
     siteTitle: '小火炉播客 Skills',
     nav: [
       { text: '首页', link: '/' },
