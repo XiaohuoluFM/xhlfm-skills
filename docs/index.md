@@ -6,7 +6,7 @@ hero:
   text: 播客创作与传播的 AI Skills
   tagline: 围绕选题、录制、整理与分发，沉淀一套面向播客创作者的可复用工作流。
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: 小火炉播客 Logo
   actions:
     - theme: brand

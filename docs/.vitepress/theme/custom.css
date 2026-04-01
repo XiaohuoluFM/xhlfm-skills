@@ -14,9 +14,9 @@
   --vp-home-hero-name-background: linear-gradient(135deg, #ff3b1f 0%, #ff6b3d 55%, #ff9f56 100%);
   --vp-home-hero-image-background-image: radial-gradient(circle at center, rgba(255, 90, 44, 0.28) 0%, rgba(255, 90, 44, 0) 68%);
   --vp-home-hero-image-filter: drop-shadow(0 30px 60px rgba(255, 89, 45, 0.28));
-  --vp-button-brand-bg: linear-gradient(135deg, #ff4d2e 0%, #ff7a43 100%);
-  --vp-button-brand-hover-bg: linear-gradient(135deg, #f74426 0%, #ff6c36 100%);
-  --vp-button-brand-active-bg: linear-gradient(135deg, #e6391f 0%, #f95d29 100%);
+  --vp-button-brand-bg: #ff4d2e;
+  --vp-button-brand-hover-bg: #f74426;
+  --vp-button-brand-active-bg: #e6391f;
   --vp-font-family-base: "Noto Sans SC", "Outfit", sans-serif;
   --vp-font-family-title: "Outfit", "Noto Sans SC", sans-serif;
 }
@@ -124,37 +124,48 @@ body {
 }
 
 .VPHero .image {
-  transform: scale(1.02);
+  transform: none;
 }
 
 .VPHero .image-container {
-  padding: 1.2rem;
-  border-radius: 2rem;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 241, 234, 0.88) 100%);
-  border: 1px solid rgba(255, 115, 73, 0.18);
-  box-shadow:
-    0 28px 70px rgba(255, 95, 51, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85);
-  animation: ember-float 6s ease-in-out infinite;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  animation: none;
+}
+
+.VPHero .image-bg {
+  display: none;
 }
 
 .VPHero .image-src {
   max-width: 360px;
+  filter: drop-shadow(0 24px 42px rgba(255, 89, 45, 0.16));
 }
 
 .dark .VPHero .image-container {
-  background:
-    linear-gradient(160deg, rgba(38, 22, 18, 0.86) 0%, rgba(26, 15, 12, 0.94) 100%);
-  border-color: rgba(255, 141, 94, 0.2);
-  box-shadow:
-    0 30px 74px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .VPButton.brand {
+  background: var(--vp-button-brand-bg);
+  color: #fff;
   border: none;
   box-shadow: 0 14px 36px rgba(255, 89, 45, 0.22);
+}
+
+.VPButton.brand:hover {
+  background: var(--vp-button-brand-hover-bg);
+  color: #fff;
+}
+
+.VPButton.brand:active {
+  background: var(--vp-button-brand-active-bg);
+  color: #fff;
 }
 
 .VPButton.alt {
