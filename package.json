@@ -1,0 +1,20 @@
+{
+  "name": "xhlfm-skills",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Public skills repository and VitePress docs for XHLFM (小火炉播客).",
+  "type": "module",
+  "packageManager": "pnpm@8.13.1",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs --host",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs --host"
+  },
+  "devDependencies": {
+    "vitepress": "1.6.4",
+    "vue": "3.5.31"
+  }
+}

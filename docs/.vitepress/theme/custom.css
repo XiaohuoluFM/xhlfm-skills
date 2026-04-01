@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap');
+
+:root {
+  --vp-c-brand-1: #ff4d2e;
+  --vp-c-brand-2: #ff7349;
+  --vp-c-brand-3: #e63a1e;
+  --vp-c-brand-soft: rgba(255, 77, 46, 0.16);
+  --vp-c-bg: #fffaf7;
+  --vp-c-bg-alt: #fff4ec;
+  --vp-c-bg-elv: rgba(255, 255, 255, 0.86);
+  --vp-c-text-1: #26130d;
+  --vp-c-text-2: #6b4437;
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #ff3b1f 0%, #ff6b3d 55%, #ff9f56 100%);
+  --vp-home-hero-image-background-image: radial-gradient(circle at center, rgba(255, 90, 44, 0.28) 0%, rgba(255, 90, 44, 0) 68%);
+  --vp-home-hero-image-filter: drop-shadow(0 30px 60px rgba(255, 89, 45, 0.28));
+  --vp-button-brand-bg: linear-gradient(135deg, #ff4d2e 0%, #ff7a43 100%);
+  --vp-button-brand-hover-bg: linear-gradient(135deg, #f74426 0%, #ff6c36 100%);
+  --vp-button-brand-active-bg: linear-gradient(135deg, #e6391f 0%, #f95d29 100%);
+  --vp-font-family-base: "Noto Sans SC", "Outfit", sans-serif;
+  --vp-font-family-title: "Outfit", "Noto Sans SC", sans-serif;
+}
+
+.dark {
+  --vp-c-bg: #170d0a;
+  --vp-c-bg-alt: #21120e;
+  --vp-c-bg-elv: rgba(33, 18, 14, 0.88);
+  --vp-c-text-1: #fff2e8;
+  --vp-c-text-2: #f4c3b2;
+  --vp-c-brand-soft: rgba(255, 99, 67, 0.18);
+  --vp-home-hero-name-background: linear-gradient(135deg, #ff9068 0%, #ff6d41 60%, #ffd4b0 100%);
+  --vp-home-hero-image-background-image: radial-gradient(circle at center, rgba(255, 120, 84, 0.26) 0%, rgba(255, 120, 84, 0) 72%);
+  --vp-home-hero-image-filter: drop-shadow(0 32px 64px rgba(0, 0, 0, 0.38));
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--vp-font-family-base);
+  background:
+    radial-gradient(circle at top center, rgba(255, 116, 71, 0.12) 0%, rgba(255, 116, 71, 0) 34%),
+    linear-gradient(180deg, #fffaf7 0%, #ffffff 38%, #fff6ef 100%);
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top center, rgba(255, 119, 81, 0.12) 0%, rgba(255, 119, 81, 0) 34%),
+    linear-gradient(180deg, #170d0a 0%, #0f0907 100%);
+}
+
+.VPNavBar {
+  background: rgba(255, 250, 247, 0.72);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 110, 71, 0.12);
+}
+
+.dark .VPNavBar {
+  background: rgba(23, 13, 10, 0.78);
+  border-bottom-color: rgba(255, 140, 103, 0.14);
+}
+
+.VPNavBarTitle .title {
+  font-family: var(--vp-font-family-title);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.VPHome {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHome::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 36rem;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255, 98, 58, 0.18) 0%, rgba(255, 98, 58, 0) 34%),
+    radial-gradient(circle at 18% 12%, rgba(255, 188, 116, 0.2) 0%, rgba(255, 188, 116, 0) 28%);
+  pointer-events: none;
+}
+
+.VPHero {
+  padding-top: 4.5rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.VPHero .container {
+  max-width: 1240px;
+}
+
+.VPHero .name,
+.VPHero .text {
+  font-family: var(--vp-font-family-title);
+  letter-spacing: -0.05em;
+}
+
+.VPHero .name {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.VPHero .text {
+  max-width: 10.5ch;
+  font-size: clamp(3.2rem, 9vw, 6.2rem);
+  line-height: 0.92;
+}
+
+.VPHero .tagline {
+  max-width: 36rem;
+  font-size: 1.06rem;
+  line-height: 1.8;
+  color: var(--vp-c-text-2);
+}
+
+.VPHero .actions {
+  gap: 0.85rem;
+}
+
+.VPHero .image {
+  transform: scale(1.08);
+}
+
+.VPHero .image-container {
+  padding: 1.5rem;
+  border-radius: 2rem;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 241, 234, 0.88) 100%);
+  border: 1px solid rgba(255, 115, 73, 0.18);
+  box-shadow:
+    0 28px 70px rgba(255, 95, 51, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  animation: ember-float 6s ease-in-out infinite;
+}
+
+.dark .VPHero .image-container {
+  background:
+    linear-gradient(160deg, rgba(38, 22, 18, 0.86) 0%, rgba(26, 15, 12, 0.94) 100%);
+  border-color: rgba(255, 141, 94, 0.2);
+  box-shadow:
+    0 30px 74px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.VPButton.brand {
+  border: none;
+  box-shadow: 0 14px 36px rgba(255, 89, 45, 0.22);
+}
+
+.VPButton.alt {
+  border-color: rgba(255, 101, 59, 0.2);
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.dark .VPButton.alt {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 141, 94, 0.18);
+}
+
+.home-poster,
+.signal-grid,
+.manifesto,
+.heat-note,
+.cta-strip {
+  position: relative;
+  z-index: 1;
+}
+
+.home-poster {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: start;
+  margin: 2rem 0 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 112, 67, 0.18);
+}
+
+.home-poster h2,
+.manifesto h3,
+.heat-note h3,
+.cta-strip h3 {
+  margin: 0;
+  font-family: var(--vp-font-family-title);
+  letter-spacing: -0.04em;
+}
+
+.home-poster h2 {
+  max-width: 14ch;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1.02;
+}
+
+.home-poster p:last-child {
+  margin: 0.6rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--vp-c-text-2);
+}
+
+.section-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--vp-c-brand-1);
+  font-family: var(--vp-font-family-title);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0 0 3.5rem;
+}
+
+.signal-step {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 112, 67, 0.22);
+}
+
+.signal-step span {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: var(--vp-c-brand-1);
+  font-family: var(--vp-font-family-title);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.signal-step h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.signal-step p,
+.manifesto p,
+.heat-note p,
+.cta-strip p {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  line-height: 1.85;
+}
+
+.manifesto {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0 0 3rem;
+}
+
+.manifesto section,
+.signal-step {
+  min-height: 100%;
+}
+
+.manifesto section {
+  padding: 1.4rem 0 0;
+  border-top: 1px solid rgba(255, 112, 67, 0.18);
+}
+
+.manifesto h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.65rem;
+  line-height: 1.12;
+}
+
+.heat-note {
+  margin: 0 0 3rem;
+  padding: 1.8rem 2rem;
+  border-radius: 1.8rem;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 242, 235, 0.9) 100%);
+  border: 1px solid rgba(255, 108, 63, 0.14);
+  box-shadow: 0 24px 60px rgba(255, 105, 62, 0.1);
+}
+
+.dark .heat-note {
+  background:
+    linear-gradient(135deg, rgba(35, 19, 15, 0.9) 0%, rgba(24, 13, 10, 0.92) 100%);
+  border-color: rgba(255, 141, 94, 0.16);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26);
+}
+
+.heat-note h3 {
+  margin-bottom: 0.65rem;
+  font-size: 1.85rem;
+  line-height: 1.08;
+}
+
+.cta-strip {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 0 1rem;
+  padding: 2rem 0 0;
+  border-top: 2px solid rgba(255, 91, 49, 0.84);
+}
+
+.cta-strip h3 {
+  max-width: 18ch;
+  font-size: 2rem;
+  line-height: 1.04;
+}
+
+.cta-strip a {
+  flex-shrink: 0;
+  color: var(--vp-c-brand-1);
+  font-family: var(--vp-font-family-title);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cta-strip a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-family: var(--vp-font-family-title);
+  letter-spacing: -0.03em;
+}
+
+.vp-doc h1 {
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+}
+
+.vp-doc h2 {
+  padding-top: 0.4rem;
+  border-top-color: rgba(255, 112, 67, 0.2);
+}
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background: rgba(255, 123, 69, 0.04);
+}
+
+.dark .vp-doc tr:nth-child(2n) {
+  background: rgba(255, 123, 69, 0.06);
+}
+
+.vp-doc a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.VPFooter {
+  background: transparent;
+}
+
+@keyframes ember-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 960px) {
+  .VPHero {
+    padding-top: 3rem !important;
+  }
+
+  .home-poster,
+  .manifesto,
+  .cta-strip {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .signal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-poster h2,
+  .cta-strip h3 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPHero .text {
+    max-width: 9ch;
+  }
+
+  .VPHero .tagline {
+    font-size: 1rem;
+  }
+
+  .VPHero .image-container {
+    padding: 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .home-poster {
+    margin-top: 0.5rem;
+  }
+
+  .signal-grid,
+  .manifesto {
+    grid-template-columns: 1fr;
+  }
+
+  .heat-note {
+    padding: 1.4rem 1.3rem;
+    border-radius: 1.3rem;
+  }
+
+  .cta-strip {
+    gap: 1rem;
+  }
+
+  .cta-strip h3 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
