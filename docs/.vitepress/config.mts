@@ -23,9 +23,15 @@ export default defineConfig({
     siteTitle: '小火炉播客 Skills',
     nav: [
       { text: '首页', link: '/' },
+      {
+        text: 'Skills',
+        items: [
+          { text: 'Skills 总览', link: '/skills/' },
+          { text: '中文播客雷达', link: '/skills/podcast-radar-cn' }
+        ]
+      },
       { text: '指南', link: '/guide/' },
       { text: '愿景', link: '/guide/vision' },
-      { text: '技能体系', link: '/guide/skills' },
       { text: '共建', link: '/guide/contributing' }
     ],
     sidebar: {
