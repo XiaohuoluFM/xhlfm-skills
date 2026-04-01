@@ -1,0 +1,37 @@
+{
+  "id": "b2884a36f98d001c7cb7e3a53379b492",
+  "rank": 1,
+  "name": "岩中花述",
+  "logoURL": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/66/61/68/6661682f-e63e-e4ae-9a2b-24e0f469e691/mza_10195277240598994553.jpg/100x100bb.jpg",
+  "primaryGenreName": "艺术",
+  "authorsText": "GIADA迦达",
+  "trackCount": 78,
+  "lastReleaseDate": "Sun Mar 22 2026 02:30:44 GMT+0000 (Coordinated Universal Time)",
+  "lastReleaseDateDayCount": 9.708233020833333,
+  "firstEpisodePostTime": "2022-04-12T22:00:00.000Z",
+  "activeRate": 0,
+  "avgDuration": 75,
+  "avgPlayCount": 1412613,
+  "avgUpdateFreq": 514,
+  "avgCommentCount": 3487,
+  "avgInteractIndicator": 0.0024689932887046293,
+  "avgOpenRate": 0.4101261616041085,
+  "links": [
+    {
+      "name": "xyz",
+      "url": "https://www.xiaoyuzhoufm.com/podcast/625635587bfca4e73e990703"
+    },
+    {
+      "name": "apple",
+      "url": "https://podcasts.apple.com/us/podcast/%E5%B2%A9%E4%B8%AD%E8%8A%B1%E8%BF%B0/id1582119137?l=zh&uo=4"
+    },
+    {
+      "name": "website",
+      "url": "https://www.xiaoyuzhoufm.com/podcast/625635587bfca4e73e990703?utm_source=rss"
+    },
+    {
+      "name": "rss",
+      "url": "https://feed.xyzfm.space/hwen8wf69c6g"
+    }
+  ]
+}

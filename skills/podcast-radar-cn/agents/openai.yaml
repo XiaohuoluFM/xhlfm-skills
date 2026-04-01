@@ -1,0 +1,4 @@
+interface:
+  display_name: "中文播客雷达"
+  short_description: "发现热门与新锐中文播客，适合听众、创作者和分发策展"
+  default_prompt: "Use $podcast-radar-cn to discover, compare, and curate trending or rising Chinese podcasts and episodes from 中文播客榜, using title-first analysis and only small-scale Xiaoyuzhou enrichment when necessary."

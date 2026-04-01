@@ -9,13 +9,15 @@
 - [愿景与方法](./vision.md)
 - [技能体系](./skills.md)
 - [共建方式](./contributing.md)
+- [测试与验证](./testing.md)
 - [部署到 Vercel](./deploy-vercel.md)
 
 ## 当前阶段
 
 - 仓库已经初始化 VitePress 文档站
 - 小火炉播客品牌 logo 与基础视觉样式已接入
-- `skills/` 目录已预留，方便后续逐步补齐公开 Skill
+- `skills/` 目录已接入第一个可安装 Skill
+- 本地测试脚手架已经建立，支持仓库级契约测试、Skill fixture 测试和可选 live smoke
 
 ## 我们希望沉淀的能力
 

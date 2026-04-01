@@ -1,0 +1,135 @@
+---
+name: podcast-radar-cn
+description: Discover, compare, and curate trending or rising Chinese podcasts and episodes using 中文播客榜 (xyzrank). Use when users ask for the hottest Chinese podcasts, rising shows, genre-based recommendations, competitor podcasts, curation lists, or podcast distribution leads. Prefer ranking fields and title signals first, and only do small-scale Xiaoyuzhou enrichment when truly necessary.
+---
+
+# Podcast Radar CN
+
+Use this skill when the user wants to discover, compare, or curate Chinese podcasts or podcast episodes based on current ranking data.
+
+This skill is strongest at:
+
+- listener discovery
+- creator benchmarking
+- curation and distribution research
+
+It is not a general web scraping skill. Its default posture is ranking-first and title-first.
+
+## Quick Start
+
+Choose one of the four ranking lists:
+
+- `hot-podcasts`
+- `hot-episodes`
+- `new-podcasts`
+- `new-episodes`
+
+Fetch a candidate set first:
+
+```bash
+python skills/podcast-radar-cn/scripts/fetch_xyz_rank.py --list hot-podcasts --limit 20
+```
+
+Filter by genre, freshness, or query when the user already has a direction:
+
+```bash
+python skills/podcast-radar-cn/scripts/fetch_xyz_rank.py \
+  --list new-episodes \
+  --limit 12 \
+  --genre 社会与文化 \
+  --freshness-days-max 30
+```
+
+If and only if you truly need extra context for a small set of candidates, enrich a few Xiaoyuzhou URLs:
+
+```bash
+python skills/podcast-radar-cn/scripts/enrich_xiaoyuzhou.py \
+  --episode-url https://www.xiaoyuzhoufm.com/episode/69bf524c2d318777c9169361
+```
+
+## Workflow
+
+1. Classify the request as one of:
+   - listener discovery
+   - creator benchmarking
+   - curation/distribution research
+2. Pick the most relevant ranking list.
+3. Fetch enough candidates to support filtering; do not stop at the first 5 unless the user asked for 5.
+4. Use ranking fields and title signals first.
+5. Only if the answer would otherwise be weak, enrich a small set of Xiaoyuzhou pages.
+6. Return a task-shaped result, not raw JSON.
+
+## Title-First Rule
+
+Before reaching for Xiaoyuzhou pages, inspect:
+
+- `title`
+- `podcastName` / `name`
+- `primaryGenreName`
+- `rank`
+- `playCount` / `avgPlayCount`
+- `commentCount` / `avgCommentCount`
+- freshness fields
+
+The fetch script also extracts title signals such as:
+
+- episode markers like `S8E9`, `EP03`, `Vol132`
+- guest hints like `A×B`, `对话某某`
+- format hints like `对谈`, `访谈`, `复盘`, `盘点`
+- topic keywords inferred from the title
+
+If those signals are enough, do not enrich.
+
+Read [references/title-signals.md](references/title-signals.md) when you need examples or interpretation guidance.
+
+## Xiaoyuzhou Enrichment Rule
+
+Xiaoyuzhou enrichment is allowed only for narrow, necessary follow-up work.
+
+Hard rules:
+
+- never bulk-enrich by default
+- never enrich just to complete every field
+- never enrich more than 20 URLs in one run
+- if a request implies short-window bulk access, refuse enrichment and stay at ranking level
+
+Use enrichment when:
+
+- a short list needs better recommendation reasons
+- you need the real Xiaoyuzhou `pid` from an episode page
+- you need a podcast brief or episode description for a handful of finalists
+
+The enrichment script enforces the cap for you.
+
+## Output Modes
+
+Use one of these result shapes:
+
+- Listener Discovery: what is worth hearing now, and why
+- Creator Benchmarking: which shows are worth studying or comparing against
+- Curation and Distribution: which shows or episodes are worth packaging, recommending, or developing into downstream ideas
+
+Read [references/output-modes.md](references/output-modes.md) when you need concrete formatting guidance.
+
+## Data Caveats
+
+- 中文播客榜 is weekly, not minute-by-minute real time
+- the data is not full-platform coverage
+- `primaryGenreName` is often missing on new lists
+- `openRate` / `avgOpenRate` can exceed `1`; treat these as internal ranking signals, not literal rates
+
+Read [references/api.md](references/api.md) when you need field notes or endpoint details.
+
+## Scripts
+
+- `scripts/fetch_xyz_rank.py`
+  Purpose: fetch and normalize ranking data, with basic filters and title-signal extraction
+- `scripts/enrich_xiaoyuzhou.py`
+  Purpose: enrich a small set of Xiaoyuzhou pages with brief/description/shownotes context, under a strict cap
+
+## What To Avoid
+
+- dumping raw fields without synthesis
+- pretending the ranking is a real-time universal truth
+- using Xiaoyuzhou enrichment for large-page traversal
+- over-explaining `openRate` as if it were a clean probability

@@ -38,6 +38,23 @@ pnpm docs:build
 pnpm docs:preview
 ```
 
+本地测试：
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+pnpm test
+```
+
+可选命令：
+
+```bash
+pnpm test:skills
+pnpm test:skills:live
+pnpm test:docs
+```
+
 ## 目录结构
 
 ```text
@@ -65,6 +82,7 @@ pnpm docs:preview
 - [愿景与方法](./docs/guide/vision.md)
 - [技能体系](./docs/guide/skills.md)
 - [共建方式](./docs/guide/contributing.md)
+- [测试与验证](./docs/guide/testing.md)
 - [部署到 Vercel](./docs/guide/deploy-vercel.md)
 
 ## 部署

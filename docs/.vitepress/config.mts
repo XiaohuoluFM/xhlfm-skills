@@ -37,7 +37,18 @@ export default defineConfig({
             { text: '愿景与方法', link: '/guide/vision' },
             { text: '技能体系', link: '/guide/skills' },
             { text: '共建方式', link: '/guide/contributing' },
+            { text: '测试与验证', link: '/guide/testing' },
             { text: '部署到 Vercel', link: '/guide/deploy-vercel' }
+          ]
+        }
+      ],
+      '/skills/': [
+        {
+          text: 'Skill 文档',
+          items: [
+            { text: '总览', link: '/skills/' },
+            { text: '中文播客雷达', link: '/skills/podcast-radar-cn' },
+            { text: '使用剧本', link: '/skills/podcast-radar-cn-playbook' }
           ]
         }
       ]
