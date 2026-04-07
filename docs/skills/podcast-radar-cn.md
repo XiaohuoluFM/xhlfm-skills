@@ -55,18 +55,23 @@
 
 ## 安装方式
 
-推荐用下面三种方式之一安装。
+这个 Skill 现在按“自包含目录”组织，既可以手动复制，也可以放进 OpenClaw 工作区，后续也可以直接发布到 ClawHub。
 
-### 方式一：直接安装 Skill 目录
-
-把 Skill 目录放到本地 Codex Skills 目录中：
+### 方式一：安装到 Codex
 
 ```bash
 mkdir -p ~/.codex/skills
 cp -R skills/podcast-radar-cn ~/.codex/skills/
 ```
 
-### 方式二：从 GitHub 仓库安装
+### 方式二：安装到 OpenClaw 工作区
+
+```bash
+mkdir -p ~/.openclaw/workspace/skills
+cp -R skills/podcast-radar-cn ~/.openclaw/workspace/skills/
+```
+
+### 方式三：从 GitHub 仓库获取后再安装
 
 你也可以直接从 GitHub 获取这个仓库，再把 Skill 目录放入本地 Skills 目录：
 
@@ -76,11 +81,46 @@ mkdir -p ~/.codex/skills
 cp -R xhlfm-skills/skills/podcast-radar-cn ~/.codex/skills/
 ```
 
-### 方式三：从本仓库同步
+如果你想给 OpenClaw 用，把目标目录换成 `~/.openclaw/workspace/skills/` 即可。
+
+### 方式四：发布到 ClawHub 后安装
+
+维护者可以直接从这个仓库发布：
+
+```bash
+clawhub skill publish ./skills/podcast-radar-cn \
+  --slug podcast-radar-cn \
+  --name "中文播客雷达" \
+  --version 0.1.0 \
+  --tags latest,podcast,zh-cn
+```
+
+发布后，OpenClaw 用户可以直接安装：
+
+```bash
+openclaw skills install podcast-radar-cn
+```
+
+或者：
+
+```bash
+clawhub install podcast-radar-cn
+```
+
+### 方式五：从本仓库持续同步
 
 如果你已经把这个仓库作为 Skills 仓库维护，后续只需要同步仓库并确保 Skill 目录存在即可。
 
-安装后建议重启一次 Codex，让新 Skill 被稳定识别。
+安装后建议重启一次 Codex，或者开启一个新的 OpenClaw 会话，让新 Skill 被稳定识别。
+
+## OpenClaw / ClawHub 兼容说明
+
+这次调整后，这个 Skill 对 OpenClaw 更友好了：
+
+- `SKILL.md` 不再写死仓库内路径，而是按 Skill 根目录组织
+- 已补充 `homepage` 与 `metadata.openclaw`
+- 已声明 `python3` / `python` 依赖，便于 OpenClaw 在加载时做资格判断
+- 已提供 macOS 上通过 Homebrew 安装 Python 的入口，方便 Skills UI 处理缺失依赖
 
 ## 安装后你会得到什么
 

@@ -43,3 +43,9 @@ skills/
 - `references/`：沉淀字段说明、边界和输出模式
 - `scripts/`：把稳定的抓取、清洗、富化逻辑沉淀成可复用工具
 - 示例：帮助新贡献者快速理解效果边界
+
+兼容性建议：
+
+- 把每个 Skill 当成一个可独立搬运的目录，不要假设它一定运行在当前仓库根目录下
+- 在 `SKILL.md` 中引用脚本或参考文件时，优先按 Skill 根目录组织；对 OpenClaw，推荐使用 `{baseDir}`
+- 如果 Skill 依赖某个命令行工具、环境变量或配置，尽量在 frontmatter 的 `metadata.openclaw` 中声明，方便 OpenClaw / ClawHub 做安装资格判断

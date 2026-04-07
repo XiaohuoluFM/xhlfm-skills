@@ -76,6 +76,13 @@ pnpm test:docs
 - `assets/`：模版、提示片段、配套资源
 - `references/`：必要的背景说明与链接
 
+额外建议：
+
+- Skill 尽量保持“目录自包含”，不要在 `SKILL.md` 里写死 `skills/<skill-name>/...` 这样的仓库路径
+- 如果要兼容 OpenClaw，优先在说明里使用 `{baseDir}` 引用 Skill 自身文件
+- 如果 Skill 依赖外部二进制或环境变量，建议补上 `metadata.openclaw.requires`
+- 如果计划发布到 ClawHub，当前仓库结构可以直接用 `clawhub sync --all` 或 `clawhub skill publish <path>` 扫描 / 发布
+
 ## 文档入口
 
 - [项目概览](./docs/guide/index.md)

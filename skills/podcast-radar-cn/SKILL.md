@@ -1,6 +1,8 @@
 ---
 name: podcast-radar-cn
-description: Discover, compare, and curate trending or rising Chinese podcasts and episodes using 中文播客榜 (xyzrank). Use when users ask for the hottest Chinese podcasts, rising shows, genre-based recommendations, competitor podcasts, curation lists, or podcast distribution leads. Prefer ranking fields and title signals first, and only do small-scale Xiaoyuzhou enrichment when truly necessary.
+description: Discover, compare, and curate trending Chinese podcasts or episodes from 中文播客榜. Use for hot or recent show discovery, creator benchmarking, curation lists, competitor research, or podcast distribution leads. Prefer ranking fields and title signals first, and only do small-scale Xiaoyuzhou enrichment when needed.
+homepage: https://github.com/XiaohuoluFM/xhlfm-skills/tree/main/skills/podcast-radar-cn
+metadata: {"openclaw":{"emoji":"🎙️","homepage":"https://github.com/XiaohuoluFM/xhlfm-skills/tree/main/skills/podcast-radar-cn","requires":{"anyBins":["python3","python"]},"install":[{"id":"brew-python","kind":"brew","formula":"python","bins":["python3"],"label":"Install Python 3 (brew)","os":["darwin"]}]}}
 ---
 
 # Podcast Radar CN
@@ -15,6 +17,14 @@ This skill is strongest at:
 
 It is not a general web scraping skill. Its default posture is ranking-first and title-first.
 
+## Skill Root Rule
+
+Treat the directory containing this `SKILL.md` as the skill root.
+
+- In OpenClaw, prefer `{baseDir}` when calling files inside this skill.
+- In other hosts or manual installs, use the same paths relative to the skill root, for example `scripts/fetch_xyz_rank.py`.
+- Examples below use `python3`; if the host only exposes `python`, swap the binary name.
+
 ## Quick Start
 
 Choose one of the four ranking lists:
@@ -27,13 +37,13 @@ Choose one of the four ranking lists:
 Fetch a candidate set first:
 
 ```bash
-python skills/podcast-radar-cn/scripts/fetch_xyz_rank.py --list hot-episodes --limit 20
+python3 {baseDir}/scripts/fetch_xyz_rank.py --list hot-episodes --limit 20
 ```
 
 Filter by genre, freshness, or query when the user already has a direction:
 
 ```bash
-python skills/podcast-radar-cn/scripts/fetch_xyz_rank.py \
+python3 {baseDir}/scripts/fetch_xyz_rank.py \
   --list new-episodes \
   --limit 12 \
   --genre 社会与文化 \
@@ -43,7 +53,7 @@ python skills/podcast-radar-cn/scripts/fetch_xyz_rank.py \
 If and only if you truly need extra context for a small set of candidates, enrich a few Xiaoyuzhou URLs:
 
 ```bash
-python skills/podcast-radar-cn/scripts/enrich_xiaoyuzhou.py \
+python3 {baseDir}/scripts/enrich_xiaoyuzhou.py \
   --episode-url https://www.xiaoyuzhoufm.com/episode/69bf524c2d318777c9169361
 ```
 

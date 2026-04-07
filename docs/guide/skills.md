@@ -29,6 +29,12 @@ skills/
     references/
 ```
 
+补充建议：
+
+- Skill 目录最好可单独复制或发布，不要依赖仓库根目录路径
+- 如果要兼容 OpenClaw，说明中的文件引用优先使用 Skill 根目录语义，必要时使用 `{baseDir}`
+- 如果 Skill 有运行时依赖，建议在 frontmatter 中补充 `metadata.openclaw.requires`
+
 ## `SKILL.md` 建议包含的内容
 
 ```md
